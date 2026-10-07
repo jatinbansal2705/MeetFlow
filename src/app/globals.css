@@ -1,0 +1,174 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-inter);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-brand-soft: var(--brand-soft);
+  --color-brand-ring: var(--brand-ring);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-muted: var(--sidebar-muted);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-surface-secondary: var(--surface-secondary);
+  --color-hover: var(--hover);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-info: var(--info);
+  --color-destructive-soft: var(--destructive-soft);
+  --color-success-soft: var(--success-soft);
+  --color-warning-soft: var(--warning-soft);
+  --color-info-soft: var(--info-soft);
+  --color-brand-tint: var(--brand-tint);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+}
+
+:root, .dark {
+  --background: #09090B;
+  --foreground: #FAFAFA;
+  --card: #18181B;
+  --card-foreground: #FAFAFA;
+  --popover: #18181B;
+  --popover-foreground: #FAFAFA;
+  --primary: #FAFAFA;
+  --primary-foreground: #09090B;
+  --secondary: #27272A;
+  --secondary-foreground: #FAFAFA;
+  --muted: #27272A;
+  --muted-foreground: #A1A1AA;
+  --accent: #27272A;
+  --accent-foreground: #FAFAFA;
+  --destructive: #F87171;
+  --destructive-foreground: #09090B;
+  --border: #27272A;
+  --input: #27272A;
+  --ring: #10B981;
+  --radius: 0.75rem;
+  --brand: #10B981;
+  --brand-foreground: #FAFAFA;
+  --brand-soft: rgba(16, 185, 129, 0.10);
+  --brand-ring: rgba(16, 185, 129, 0.35);
+  --brand-tint: rgba(16, 185, 129, 0.06);
+  --sidebar: #111113;
+  --sidebar-foreground: #FAFAFA;
+  --sidebar-muted: #A1A1AA;
+  --sidebar-accent: #27272A;
+  --sidebar-accent-foreground: #FAFAFA;
+  --sidebar-border: #27272A;
+  --chart-1: #10B981;
+  --chart-2: #52525B;
+  --chart-3: #3F3F46;
+  --chart-4: #27272A;
+  --chart-5: #18181B;
+  --surface-secondary: #202024;
+  --hover: #25252A;
+  --success: #4ADE80;
+  --warning: #FBBF24;
+  --info: #60A5FA;
+  --destructive-soft: #F87171/0.1;
+  --success-soft: #4ADE80/0.1;
+  --warning-soft: #FBBF24/0.1;
+  --info-soft: #60A5FA/0.1;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+  html {
+    @apply font-sans;
+  }
+  ::selection {
+    @apply bg-brand-soft;
+  }
+  ::-webkit-scrollbar {
+    @apply size-1.5;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-muted-foreground/20 hover:bg-muted-foreground/30;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes grow-bar {
+  from {
+    transform: scaleY(0.04);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+.bg-landing-grid {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
